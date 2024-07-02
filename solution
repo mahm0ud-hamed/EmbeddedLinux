@@ -1,0 +1,33 @@
+1) three linux ditstiution 
+	1- ubuntu 
+	2- redhat 
+	3- kali linux 
+2) man is a System-wide documenbtaion system that provide short reference manuals for commands , API function . concepts . 
+3) rm -> remove file or deirectories 
+   rddir -> remove empty deirectory 
+4) a : remvoing dir11 using rmdir return error that file is not empty 
+   solve this issue -> use rm -rf dir11
+   b : no such file or directory returned 
+   c : absolute pth "/home/mahmoud/docs"
+       relative path "docs /mucv"
+       
+5) cp /etc/passwd  ~ 
+6) mv passwd ~/oldpasswd
+7) 1 : cd ~
+   2 : cd /home 
+   3 : cd $HOME
+   4 : cd -
+   5 : cd 
+8) ls w*
+9) 1: alias command the excute before anythig 
+   2: internal command is the command that is a part of the shell itself and , as such . desent 
+      have to be loadede from disk sperately
+   3: external command : is a command that exisit as an excutable file on disk of computer  
+    
+10) to list built in commands -> compgen -b
+	1: built in commnad statrt with c -> cd 
+	2: extrenal command -> cmp 
+11) man cat 
+12) helps the user when they don’t remember the exact command but knows a few keywords related to the command that define its uses or functionality. It searches the Linux man page with the help of the keyword provided by the user to find the command and its functions
+
+   

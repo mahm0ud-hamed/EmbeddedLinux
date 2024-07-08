@@ -10,6 +10,8 @@ enum class error{
 void PrintError(error value ); 
 
 int main(){
+    char  x ; 
+    std::cout <<typeid(x).name()<<std::endl; 
     PrintError(static_cast<error>(500) ); 
 }
 

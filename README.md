@@ -1,1 +1,1 @@
-# EmbeddedLinuxAndoidAutomotive 
+# EmbeddedLinux-AndoidAutomotive 

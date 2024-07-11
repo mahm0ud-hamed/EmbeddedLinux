@@ -1,0 +1,20 @@
+-- listing machine sheel 
+	cat /etc/shells -> this command will print all valid login shells 
+	
+-- printing all enviromental variable 
+	- using "env" 
+	- printenv    
+	-> using this twocommand will list the evironmental variable 
+	
+-- print currnet shell nmae 
+	- echo $SHELL 
+	-> running this command will print the curresnt shell name 
+	
+-- running command echo \ 
+	- will print new line on the terminal 
+	the purpose of \ is to print new line in treminal 
+
+-- making an alias to print PATH will be crated using alias command 
+	alisa printPath='$PATH' 
+	when calling printPath will print all pathes in environment variable PATH 
+	

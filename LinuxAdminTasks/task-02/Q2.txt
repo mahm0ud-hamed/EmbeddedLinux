@@ -1,0 +1,13 @@
+
+
+Q2 : when try to excute the output file which is bincarySearch.exe from any working directory after move it to /usr/local/bin it was working corectely  
+	explanition >> becouse /usr/local/bin 
+	it was one of the PATH  enviromental variable which contain the pathes of binary files that when call it from any working directory the operating system search for the binary files on this 		pathes if founded  will run it 
+	
+	
+	/******************* searching info ******************************/ 
+	
+	The $PATH variable in the Linux operating system is a critical component that plays a significant role in the execution of commands and programs. It is an environment variable that lists the directories in which the system searches for executable files when a command is issued. The order of directories specified in the $PATH variable determines the priority in which the system searches for executables
+	
+	
+	Secondly, absolute paths eliminate the reliance on the current working directory. When a command is executed without specifying an absolute path, the system searches for the command in the directories listed in the $PATH variable in the order specified. If the command exists in multiple directories, the system will execute the one that appears first in the $PATH variable. However, if the current working directory is included in the $PATH variable and a malicious user places a malicious executable with the same name in that directory, the system may execute the malicious file instead of the intended one. By using absolute paths, this risk is mitigated as the system does not rely on the current working directory.

@@ -4,11 +4,15 @@
 
 int BinarySearch(int * array , int size , int value  ) ; 
 
+/*  mian functtion */
 int main(){
 int arr [] = {2 ,3 ,4 ,5,6} ; 
-int result = BinarySearch(arr, 5 ,1) ;
-    printf("%d\n", result) ;  
 
+// searcing on value that not exist on array 
+int result = BinarySearch(arr, 5 ,1) ;
+    printf("result of non exisit element :  %d\n", result) ;  
+    result = BinarySearch(arr, 5 ,3) ;
+    printf("the index of the searched value is :  %d\n", result) ;  
 
 }
 

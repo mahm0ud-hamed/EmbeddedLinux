@@ -8,8 +8,7 @@ int main(){
     auto pos  {text.find(wr)}; 
     std::cout<<"position"<< pos <<std::endl; ; 
     while( pos != std::string::npos){ 
-        text.replace(pos,wr.length(),"circle"); 
-        pos = text.find(wr , pos+wr.length()) ;
+    pos = text.find(wr , pos+wr.length()) ;
         std::cout<<"next postion "<<pos+wr.length()<<std::endl; 
     }
     std::cout<< text<<std::endl ;

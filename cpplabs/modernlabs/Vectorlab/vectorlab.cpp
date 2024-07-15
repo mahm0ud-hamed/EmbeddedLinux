@@ -9,12 +9,12 @@ std::vector<std::vector<int>> myvec= {
     {4,5},
     {7,8}
 };
-/*for(const auto  &out : myvec){
+for(const auto  &out : myvec){
     for(auto in : out){
         std::cout<< in <<" "; 
     }
     std::cout<< std::endl ; 
-}*/
+}
 std::vector<std::vector<int>> newvec = SwapRowColoumn(myvec) ;
 for(const auto  &out : newvec){
     for(auto in : out){

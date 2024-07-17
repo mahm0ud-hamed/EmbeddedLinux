@@ -60,18 +60,18 @@ int main (){
         std::cout<<"cant open file "<<std::endl;
         return 1 ; 
     }   
-
-    // std::cout<<std::setw(40)<<std::setfill('-')<<""<<""<<std::endl;
-    // std::cout<<"|"<<std::setw(6)<< "sum" <<std::setw(4)<<"|"<<std::setw(6)<< "avg" <<std::setw(4)<<"|"<<std::setw(6)<< "min" <<std::setw(4)<<"|"<<std::setw(6)<< "max" <<std::setw(4)<<"|"<<std::endl;
-    // std::cout<<"|"<<std::setw(39)<<std::setfill('-')<<""<<"|"<<std::endl;
-    // std::cout<<"|"<<std::setw(6)<< sum <<std::setw(4)<<"|"<<std::setw(6)<< avg <<std::setw(4)<<"|"<<std::setw(6)<< min <<std::setw(4)<<"|"<<std::setw(6)<< max <<std::setw(4)<<"|"<<std::endl;
-    // std::cout<<std::setw(41)<<std::setfill('-')<<""<<std::endl;
+        // setfil(' ') is sticky fill will need to 
+    std::cout<<std::setw(40)<<std::setfill('-')<<""<<""<<std::endl;
+    std::cout<<"|"<<std::setw(6)<<std::setfill(' ')<< "sum" <<std::setw(4)<<"|"<<std::setw(6)<< "avg" <<std::setw(4)<<"|"<<std::setw(6)<< "min" <<std::setw(4)<<"|"<<std::setw(6)<< "max" <<std::setw(4)<<"|"<<std::endl;
+    std::cout<<"|"<<std::setw(39)<<std::setfill('-')<<""<<"|"<<std::endl;
+    std::cout<<"|"<<std::setw(6)<<std::setfill(' ')<< sum <<std::setw(4)<<"|"<<std::setw(6)<< avg <<std::setw(4)<<"|"<<std::setw(6)<< min <<std::setw(4)<<"|"<<std::setw(6)<< max <<std::setw(4)<<"|"<<std::endl;
+    std::cout<<std::setw(41)<<std::setfill('-')<<""<<std::endl;
     
-    out<<std::setw(40)<<std::setfill('-')<<""<<std::endl;
-    out<<"|"<<std::setw(6)<< "sum" <<std::setw(4)<<"|"<<std::setw(6)<< "avg" <<std::setw(4)<<"|"<<std::setw(6)<< "min" <<std::setw(4)<<"|"<<std::setw(6)<< "max" <<std::setw(4)<<"|"<<std::endl;
-    out<<"|"<<std::setw(39)<<std::setfill('-')<<""<<"|"<<std::endl;
-    out<<"|"<<std::setw(6)<< sum <<std::setw(4)<<"|"<<std::setw(6)<< avg <<std::setw(4)<<"|"<<std::setw(6)<< min <<std::setw(4)<<"|"<<std::setw(6)<< max <<std::setw(4)<<"|"<<std::endl;
-    out<<std::setw(41)<<std::setfill('-')<<""<<std::endl;
+    // out<<std::setw(40)<<std::setfill('-')<<""<<std::endl;
+    // out<<"|"<<std::setw(6)<< "sum" <<std::setw(4)<<"|"<<std::setw(6)<< "avg" <<std::setw(4)<<"|"<<std::setw(6)<< "min" <<std::setw(4)<<"|"<<std::setw(6)<< "max" <<std::setw(4)<<"|"<<std::endl;
+    // out<<"|"<<std::setw(39)<<std::setfill('-')<<""<<"|"<<std::endl;
+    // out<<"|"<<std::setw(6)<< sum <<std::setw(4)<<"|"<<std::setw(6)<< avg <<std::setw(4)<<"|"<<std::setw(6)<< min <<std::setw(4)<<"|"<<std::setw(6)<< max <<std::setw(4)<<"|"<<std::endl;
+    // out<<std::setw(41)<<std::setfill('-')<<""<<std::endl;
     // out<<std::setw(50)<<std::setfill('-')<<""<<std::endl;
 
     out.close();

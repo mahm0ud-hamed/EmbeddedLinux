@@ -100,3 +100,6 @@ fatload mmc 0:1 ${fdt_addr_r} vexpress-v2p-ca9.dtb
 ```bash 
 bootz ${kernel_addr_r } - ${fdt _addr_r }
 ```
+## finaly kernel painc are removed also my panic 
+![alt text](image.png)
+

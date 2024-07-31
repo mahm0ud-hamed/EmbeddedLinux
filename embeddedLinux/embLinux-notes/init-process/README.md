@@ -103,13 +103,13 @@ switch(runlevel){
 ``` 
 in inttab for system v 
 
-node:runlevel: app 
-:s:sysinit:rcS -> will parse rcS file which mount  proc , sys and go to run level which  select in rcS init 2 run on runlevel 2 
+node:runlevel: action : app -> this called node 
+:s:sysinit:rcS -> will parse rcS file which mount  proc , sys and go to run level which  select in rcS ->init 2 run on runlevel 2 
 
 :1: wait : rc 
 :2: wait :rc 
 -> we run rc in each level becouse it was check for workiing level 
-it can formated as :1 2 3 4 5 : rc 
+it can formated as :1 2 3 4 5 : wait :rc 
 
 change runnig mode will not run sysinit again it will got to wait  direct 
 
@@ -120,11 +120,24 @@ then return to inittab and run wait which is selected in rcS in run mode and pas
 
 after complete starting change change running mode will not run :s:sysinit:rcS again 
 
+bydefault you run in s node 
+you can change default in boot args  init = /sbin/intin 5 -> in meanuconfig 
+or make in extlinux in label called APPEND 
+
+
 ## problem of system v 
 
 1. initialization done in serial >> because of for loop in every application and start it in series 
 
 ### system D 
+
+type of process in linux 
+1. forground -> process runnig an user can make an interact with it 
+2. back ground process -> process runnig and user cant make interact with at 
+3. oriphin process -> 
+    when process inti process creat process 2 and process 3 -> so process 2 was parent wto process 3 if process 2 get killed , init process will be parent of process 3 
+4. zombie process ->  its a process that finished it work and dosen't return an exit status to it parent so parent cant complete its kill and free it resources fro init tabel so ->it take space form kernel process space whic is limited to run specific number of process at a time 
+5. daemon process -> it's a back ground process in concept but it  can't be forground process its was an services run applications in back ground "jobs" command viwe runs back ground process 
 
 ## is an init process
 /sbin/bin -> sotlinked to /lib/systemd/system -> which is a c apllication 
@@ -145,8 +158,9 @@ unit was partitioned to
     3. network -> setip
     4. automount ->  
     5. socket  -> realted to ports 
+    6. traget  -> 
 
-each unit has a specific way to write it 
+# each unit has a specific way to write it 
 1. service -> run application in back ground as daemon process it will run without user interaction 
 
 how to write srvice 
@@ -159,17 +173,67 @@ vim myservie.service
     description  =" .. "
     documentation=" url if it available"
     SourcPath    =" path of application ". 
-    After        = give it another "unit file" - run myservice after "unit file" was runed 
-    don't wait for its completion 
+    After        = give it another "unit file" - run myservice after "unit file" was runed .
+    don't wait for its completion .
+    wants = give it another "unit file" and run it and wait it to successfully run and then run myservice .
     Before       = give it another "unit file" run myservice before run the passed unit file "unit file" dont wait completion of myservice 
-    wants = give it another "unit file" and run it and wait it to successfully run and then run myservice 
+    requires = give it another "unit file" run my service and wait tell it was successfully run  and then the passed unit file .
+[service] 
+    type = type of process you need to create -> { simple , oneshot , forking }
+            1. simple   -> if my service create process and myservice get killed , process also get killed 
+            2. one shot ->  used for initialization -> for any application give funtionality direct 
+            3. forking  -> if myservice create child process and myservice get killed -> init process will be parent of child process  you should write in execstop to kill process 
+    Execstart= application to run -> only one application can be wriiten here  systemctl start  -> run Execstart variable
+    Execstop = run this application when you send stop sigal to the service    systemctl stop  ->  run Execstop variable
+    workdir  = path of directory tht contain applicaation 
+    restart  =  on-faliure -> if application go to faliure state restart it aging / always -> restart applcaiton if it finish it work 
+    restart sec = 3 -> wait 3 second befor restart 
+    // service + apllcation = daemon prpcess 
 
-    requires = give it another "unit file" run my service and wait tell it was successfully run  and then the passed unit file 
+
+### lets ceaete servive 
+1. service name my touch -> service .service 
+    [unit]
+        want= touch -> mynetwork 
+
+    [service]
+    type= simple 
+    ExecSatrt=ping 192.162.1.10 -> qemu ip 
+    restart= always
+    restartsec = 3 
+    workdir= /usr/bin
 
 
+2. network service 
+
+    [uinit]
+    name="enps 3"
+
+    [network]
+    ip=192.168.1.9
+    subnet=255.255.255.0
 
 
+systemctl 
+1. start -> start service 
+2. stop -> stop service 
+3. cat 
+4. edit 
+5. get-default -> .target which is some of services 
+    [isntall]
+    wantedBy=graphic.target 
+6. set-default 
 
+## process of creating services 
+systemctl list-dependcies 
+any service you will create service -> /etc/systmd/system 
+touch my service.service 
+which containg unit and service  and install 
 
-
-
+when  suystemctl enable myservice 
+will see  install -> 'wantedBy=graphic.target'  and see that it is belong to which target "graphic.target" 
+ in graphical.target will create softlink for service under /etc/systmd/system 
+ # to show default target 
+ systemctl get-default
+ # to change default target 
+ systemctl set-default multi-user.target 

@@ -220,7 +220,7 @@ unit was partitioned to
     5. socket  -> realted to ports 
     6. traget  -> 
 
-# each unit has a specific way to write it 
+### each unit has a specific way to write it 
 1. service -> run application in back ground as daemon process it will run without user interaction 
 
 how to write srvice 
@@ -265,15 +265,16 @@ vim myservie.service
     restart sec = 3 -> wait 3 second befor restart 
 
     // service + apllcation = daemon prpcess 
-# types of service dependencies
 
-## out going dependencies 
+### types of service dependencies
+
+### out going dependencies 
 They are used mostly to create dependencies between targets
 - Requires: A list of units that this unit depends on that are started when this unit is started
 - Wants :A weaker form of Requires ; the units listed are started but the current unit is not stopped if any of them fail
 - Conflicts : A negative dependency; the units listed are stopped when this one is started and, conversely, if one of them is started, this one is stopped. 
 
-## incoming dependencies 
+### incoming dependencies 
 which are used to create links between services and targets
 
 
@@ -282,11 +283,11 @@ Now, we can see how systemd implements the bootstrap. systemd is run by the kern
 as a result of /sbin/init being symbolically linked to /lib/systemd/systemd . It runs the default target, default.target , which is always a link to the desired target, such as multi-user.target for a text login or graphical target for a graphical environment
 as a result of /sbin/init being symbolically linked to /lib/systemd/systemd . It runs the default target, default.target , which is always a link to the desired target, such as multi-user.target for a text login or graphical target for a graphical environment
 
-# list service and its curent state 
+### list service and its curent state 
 ``` bash 
 systemctl list-units --type service
 ``` 
-# list targets 
+### list targets 
 ```bash 
 systemctl list-units --type target
 ```
@@ -323,21 +324,21 @@ systemctl
     wantedBy=graphic.target 
 6. set-default 
 
-## process of creating services 
+### process of creating services 
 any service you will create service -> /etc/systmd/system 
 touch my service.service which containg unit and service  and install 
 
 when  systemctl enable myservice will see  install -> 'wantedBy=graphic.target'  and see that it is belong to which target "graphic.target" 
  in graphical.target will create softlink for service under /etc/systmd/system 
- ## how to show default target 
+ ### how to show default target 
  ```bash
  systemctl get-default
  ```
- ## how to change default target 
+ ### how to change default target 
  ```bash
  systemctl set-default multi-user.target 
  ```
- ## how to list dependincies 
+ ### how to list dependincies 
  ```bash
  systemctl list-dependcies 
  ```

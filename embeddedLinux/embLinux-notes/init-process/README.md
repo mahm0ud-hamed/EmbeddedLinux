@@ -1,4 +1,4 @@
-### inint process 
+# inint process 
 first process created by the kernel 
 init=/sbin/init 
 ## init daemon to perform the following tasks:- 
@@ -6,17 +6,14 @@ init=/sbin/init
 * adopte processes that become orphanend as result of their immediate  terminating 
 * it responds to any of inits immediate children terminataing by catching SIGCHLD signal and collecting return value to parent to prevent them from becomming zombie process 
 * it has the system shutdeon 
-## type pf init process 
+## type of init process 
 1. busyBox 
 2. system v 
 3. system d  
 ![alt text](image-1.png)
 
 ### busy Box 
-BusyBox has a minimal init program that uses a configuration file, /etc/inittab ,
-to define rules to start programs at bootup and to stop them at shutdown. Usually,
-the actual work is done by shell scripts, which, by convention, are placed in the
-/etc/init.d directory.
+BusyBox has a minimal init program that uses a configuration file, /etc/inittab ,to define rules to start programs at bootup and to stop them at shutdown. Usually,the actual work is done by shell scripts, which, by convention, are placed in the/etc/init.d directory.
 
 ## busybox init process " simple init process "
 1. running application /sbin/init there is input file which is inittab  file -. configuration file 
@@ -27,7 +24,7 @@ node :: action :: application to run
 * rcS runs at bootup and  tterates over all the scripts in /etc/init.d/ with names that begin with a capital S
 followed by two digits, and runs them in numerical order.
 
-bash script to auto mount proc and sys ``` to prevet user to make it every time These are the start scripts
+bash script to auto mount proc and sys -> to prevet user to make it every time These are the start scripts
 
 * rcS loaction in etc because it is a configuration file  
 * :: askfirst :/bin/sh ->ask user to press enter before run kernel 
@@ -68,9 +65,9 @@ mdoe 3
 mode is used to init to reduce cpu load on system 
 
 ## how to switch between mode 
-init or telinit
+use commands -> init or telinit 
 
-wahts is the used of this modes in embedded 
+## wahts is the used of this modes in embedded? 
 
 in embedded linux are divided into 2 modes 
 mode 1 
@@ -148,12 +145,11 @@ switch(runlevel){
 
 }
 ``` 
-in inttab for system v 
-
+## in inttab for system v 
 node:runlevel: action : app -> this called node 
 :s:sysinit:rcS -> will parse rcS file which mount  proc , sys and go to run level which  select in rcS ->init 2 run on runlevel 2 
 
-:1: wait : rc 
+:1: wait :rc 
 :2: wait :rc 
 -> we run rc in each level becouse it was check for workiing level 
 it can formated as :1 2 3 4 5 : wait :rc 

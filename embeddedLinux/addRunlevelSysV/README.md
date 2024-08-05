@@ -28,6 +28,7 @@ background processes
 
 4. under /etc/ create un level directoy /etc/rc2.d
 ![alt text](image-2.png)
+
 * this directory contain symbolic limk for the process S09simpleserver
 the name of symbolic link 
 - S stand for start this srvice when chage to this run level 

@@ -1,4 +1,4 @@
-# inut process 
+# init process 
 what is the init process ? 
 
 the first process created by the kernel 
@@ -52,13 +52,13 @@ started or stopped in one go when switching from one runlevel to another
 you will init all nedded and unnedded functionality 
 so we will partiotion our sysytem to run level which is equilvelnt to mode 
 every node will specify functionalities to run 
-mode 1 run : 
+- mode 1 run : 
 1. run gui 
 2. init wifi 
-mode 2 
+- mode 2 
 1. deinit gui 
 2. deinit shell 
-mdoe 3
+- mdoe 3
 1. deinit wifi 
 2. deinit gui 
 3. init gui 
@@ -72,10 +72,10 @@ use commands -> init or telinit
 ### wahts is the used of this modes in embedded? 
 
 in embedded linux are divided into 2 modes 
-mode 1 
+- mode 1 
 1. application mode 
 2. infotainment 
-mode 2 
+- mode 2 
 1. maintinance mode 
     -> in service center when connect to OBD
      -> flashin 

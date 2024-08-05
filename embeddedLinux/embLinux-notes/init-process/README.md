@@ -1,5 +1,7 @@
-# inint process 
-first process created by the kernel 
+# inut process 
+what is the init process ? 
+
+the first process created by the kernel 
 init=/sbin/init 
 ## init daemon to perform the following tasks:- 
 * druing boot after kernel transfere control , the init program start other daemon programs and configure system parameter and other things needded to get system in the orking state 
@@ -29,7 +31,7 @@ bash script to auto mount proc and sys -> to prevet user to make it every time T
 * rcS loaction in etc because it is a configuration file  
 * :: askfirst :/bin/sh ->ask user to press enter before run kernel 
 
-## how the rcs script run and there is no shell running in this stage ?
+## how the rcs script run and there is no shell running in this stage "booting stage "?
 because the shebang !#/bin/sh 
 this indicates that this script is shell script it will run this script as bash script 
 
@@ -50,33 +52,33 @@ started or stopped in one go when switching from one runlevel to another
 you will init all nedded and unnedded functionality 
 so we will partiotion our sysytem to run level which is equilvelnt to mode 
 every node will specify functionalities to run 
-mode 1 run  
-    1. run gui 
-    2. init wifi 
+mode 1 run : 
+1. run gui 
+2. init wifi 
 mode 2 
-    1. deinit gui 
-    2. deinit shell 
+1. deinit gui 
+2. deinit shell 
 mdoe 3
-    1. deinit wifi 
-    2. deinit gui 
-    3. init gui 
+1. deinit wifi 
+2. deinit gui 
+3. init gui 
 
-## why mode is used ? 
+### why mode is used ? 
 mode is used to init to reduce cpu load on system 
 
-## how to switch between mode 
+### how to switch between mode 
 use commands -> init or telinit 
 
-## wahts is the used of this modes in embedded? 
+### wahts is the used of this modes in embedded? 
 
 in embedded linux are divided into 2 modes 
 mode 1 
-    application mode 
-        infotainment 
+1. application mode 
+2. infotainment 
 mode 2 
-    maintinance mode 
-         -> in service center when connect to OBD
-         -> flashin 
+1. maintinance mode 
+    -> in service center when connect to OBD
+     -> flashin 
 
 * The init program starts the default runlevel given by the initdefault line in /etc/
 inittab
@@ -90,19 +92,19 @@ Each runlevel has a number of scripts that stop things, called kill scripts, and
 When entering a new runlevel, init first runs
 the kill scripts in the new level, and then the start scripts in the new level
 
-## inittab examels 
+### inittab examels 
 1. id:5:initdefault: // sets the default runlevel to 5
 2. si::sysinit:/etc/init.d/rcS // runs the rcS script at bootup
 3. l0:0:wait:/etc/init.d/rc //They run the /etc/init.d/rc script each time there is a change in the runlevel. This script is responsible for processing the start and
 kill scripts
 
 ## how system v make this mode 
-# 1. create a large dir which contain scripts for programs /etc/init.d such as : 
+1. create a large dir which contain scripts for programs /etc/init.d such as : 
     1. tftp 
     2. blutooth 
-# 2. create /etc/rc1.d 
-# 2. create /etc/rc5.d 
-# 2. create /etc/rc3.d
+ 2. create /etc/rc1.d 
+ 3. create /etc/rc5.d 
+ 4. create /etc/rc3.d
 each run level has it own directory  
 
 - The runlevel-handling script, /etc/init.d/rc , takes the runlevel it is switching to asa parameter. For each runlevel, there is a directory named rc<runlevel>.d :
@@ -169,10 +171,9 @@ or make in extlinux in label called APPEND
 
 
 ## problem of system v 
-
 1. initialization done in serial >> because of for loop in every application and start it in series 
 
-### system D 
+# systemD 
 ## how system D is better than sytem V 
 - The configuration is simpler and more logical
 
@@ -183,7 +184,7 @@ important for security.
 
 - Services are started in parallel, potentially reducing boot time
 
-# note -> systemd not support musl library or uClib working with glibc 
+## note -> systemd not support musl library or uClib working with glibc 
 
 type of process in linux 
 1. forground -> process runnig an user can make an interact with it 
@@ -206,8 +207,7 @@ unit : A configuration file that describes a target, a service, and several othe
 
 srvice : A daemon that can be started and stopped 
 
-target : A group of services, similar to, but more general than, a System V init runlevel. There is a default target that is the group of services that are started at
-boot time
+target : A group of services, similar to, but more general than, a System V init runlevel. There is a default target that is the group of services that are started at boot time
 
 ![alt text](image.png)
 
@@ -231,34 +231,49 @@ vim myservie.service
 -> header section 
 [unit]
     description  =" .. "
+
     documentation=" url if it available"
+
     SourcPath    =" path of application ". 
+
     /*service dependincies*/
-    After = give it another "unit file" - run 
-    myservice after "unit file" was runed .
+    After = give it another "unit file" - run  myservice after "unit file" was runed 
     don't wait for its completion .
-    wants = give it another "unit file" and run it and wait it to successfully run and then run myservice .
-    Before       = give it another "unit file" run myservice before run the passed unit file "unit file" dont wait completion of myservice 
+
+    Wants = give it another "unit file" and run it and wait it to successfully run and then run myservice .
+
+    Before= give it another "unit file" run myservice before run the passed unit file "unit file" dont wait completion of myservice.
+
     requires = give it another "unit file" run my service and wait tell it was successfully run  and then the passed unit file .
+
 [service] 
     type = type of process you need to create -> { simple , oneshot , forking }
+
             1. simple   -> if my service create process and myservice get killed , process also get killed 
             2. one shot ->  used for initialization -> for any application give funtionality direct 
             3. forking  -> if myservice create child process and myservice get killed -> init process will be parent of child process  you should write in execstop to kill process 
-    Execstart= application to run -> only one application can be wriiten here  systemctl start  -> run Execstart variable
-    Execstop = run this application when you send stop sigal to the service    systemctl stop  ->  run Execstop variable
-    workdir  = path of directory tht contain applicaation 
-    restart  =  on-faliure -> if application go to faliure state restart it aging / always -> restart applcaiton if it finish it work 
-    restart sec = 3 -> wait 3 second befor restart 
-    // service + apllcation = daemon prpcess 
 
-# out going dependencies 
+    Execstart= application to run -> only one application can be writen here systemctl start  -> run 
+    Execstart variable
+
+    Execstop = run this application when you send stop sigal to the service systemctl stop  ->  run Execstop variable
+
+    workdir= path of directory tht contain applications 
+
+    restart  =  on-faliure -> if application go to faliure state restart it aging / always -> restart applcaiton if it finish it work 
+
+    restart sec = 3 -> wait 3 second befor restart 
+
+    // service + apllcation = daemon prpcess 
+# types of service dependencies
+
+## out going dependencies 
 They are used mostly to create dependencies between targets
 - Requires: A list of units that this unit depends on that are started when this unit is started
 - Wants :A weaker form of Requires ; the units listed are started but the current unit is not stopped if any of them fail
 - Conflicts : A negative dependency; the units listed are stopped when this one is started and, conversely, if one of them is started, this one is stopped. 
 
-# incoming dependencies 
+## incoming dependencies 
 which are used to create links between services and targets
 
 
@@ -309,15 +324,20 @@ systemctl
 6. set-default 
 
 ## process of creating services 
-systemctl list-dependcies 
 any service you will create service -> /etc/systmd/system 
-touch my service.service 
-which containg unit and service  and install 
+touch my service.service which containg unit and service  and install 
 
-when  systemctl enable myservice 
-will see  install -> 'wantedBy=graphic.target'  and see that it is belong to which target "graphic.target" 
+when  systemctl enable myservice will see  install -> 'wantedBy=graphic.target'  and see that it is belong to which target "graphic.target" 
  in graphical.target will create softlink for service under /etc/systmd/system 
- # to show default target 
+ ## how to show default target 
+ ```bash
  systemctl get-default
- # to change default target 
+ ```
+ ## how to change default target 
+ ```bash
  systemctl set-default multi-user.target 
+ ```
+ ## how to list dependincies 
+ ```bash
+ systemctl list-dependcies 
+ ```

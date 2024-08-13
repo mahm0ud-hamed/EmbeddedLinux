@@ -1,7 +1,7 @@
 # Yocot customize layer 
 
-## to customize layer at firest we need to create our layer 
-- this will deone using :
+## to customize layer at first we need to create our layer 
+- this will done using :
 ``` bash 
 bitbake-layers create-layer [path]/meta-layename
 ``` 

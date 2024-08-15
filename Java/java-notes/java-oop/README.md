@@ -168,3 +168,8 @@ abstract class shape {
 ``` 
 
 **child refrence if point to parent object will generate a compiler error**
+
+
+
+**classe realtion ship** 
+

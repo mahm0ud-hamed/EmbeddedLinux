@@ -79,4 +79,6 @@ DEPENDS="cmake"
 
     - will copy the output application from build directory to rootfs of the output image 
 
+## output calculator application is under iamge/usr/bin directory 
 
+![alt text](image-2.png)

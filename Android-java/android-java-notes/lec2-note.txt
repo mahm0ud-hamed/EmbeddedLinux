@@ -1,0 +1,39 @@
+# intent 
+- used to request one of building blocks , run time binding betwee Components
+- can used as data srteuctre wheb transaction betwwen buildig blocks 
+
+# there is some methods in class context 
+- startActivity() ; 
+- startService() ; 
+
+## type of intents 
+
+- explicict intents -> has a obviouse destination  
+```java 
+Intent intent = new Intent(this , "destination"..AtivityTwo.class) destination -> activity , service , broadcast
+
+``` 
+- implicit intents -> the destination is not determined , like you need to share photo , but not detrmine for facebook or whattsapp
+ 
+
+## GUI 
+- top parent to all views is -> View
+	- ui elements can be controls , element 
+
+- all GUI extens   view 
+	- text 
+	- Image 
+- View Group ,layout -> extend view  that contain mulyible child of Views 
+	- List 
+- it must put root on activity to show it 
+
+- setContentView() , will create the ui ,
+	- which is take in parameter the root and loop over tree 
+	- make layout inflation -> the process of parsing the xml code and covert it to java object 
+	- my take resource id of xml  , will parse the xml file and understand tag by tag and will create objetcs ,
+
+## layouts 
+- frame layout -> can load one component , and place it on top left corner 
+- linear layout -> linear component ,
+	- vertical layout 
+	- horizontal layout 

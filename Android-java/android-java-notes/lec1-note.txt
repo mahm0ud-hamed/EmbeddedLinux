@@ -1,0 +1,98 @@
+- how to handle memory leak in java 
+- how to write thread saftey applications 
+- 
+- until oreo we use dalvek vm 
+- core libraies over dalvek written in java which is namtive call Libraries 
+- untill loly pop we have ART and dalvek 
+
+
+/*** Application frame work layer, main build blocks  ***/ 
+- Content provider , access data is not mine or avail my own data like whattsApp contact list , the 
+list is owned by contact list application , contact list avail its content to others to use 
+
+- Packcage manager , reponsible for object creation for any application building blocks
+
+- telphony Manager , like true caller its api was deprected for third party developers , for more privacy 
+, it like trucaller show call before dailer show it , it give you all privlage over the call 
+
+- Resource Manager , for any non code file , image , fxml files , , it was responsible for convert this files 
+to code to give you ability to access it in code 
+
+- Location Manager , location 
+
+- Notifcation Manager , responsible for local notification 
+
+Application content of one or more , all this component run in main thread 
+
+- Activity -> like Stage in Javafx , single screen UI 
+- Broadcast receiver ->  like make application listen to the battery status , if it was low send location for speciific contacts 
+Responed to notification , or status changes that can wake up you process 
+
+- Service -> is faceless task run in Back ground , no UI 
+
+- Content Provider -> access data not owned by me or avail data from my application 
+
+- package manager who will create object from this build blocks , it invoded as callback 
+
+- when new activite added and displayed it was pushing in BackStack 
+- when Back buttons is pressed , it was pop the last activite from Stack , every application has a Back Stack 
+- how to create an activite 
+	- public class HelloAndroid extends AppCompatActivity {
+	
+	}
+
+- AppCompatActivity  --stand for---> Application Compitapility Activity , application will work for this version of or older fro specific version or the newer 
+- all AppCompatActivity methos will call back so you will never call it , but you will overwrite it 
+
+- OnCreate() --> for structure UI for application 
+- OnStart ()  ---> initialize objects , activite is ready to show , but it not dispalyede yet
+- onResume () ---> activity Displayed and up andrunning 
+- onPause() ---> ready to unshow not unshowed yet, it used to release rsources , commit data , 
+- onStop() ---> it unshowed ,  but the object is not dead , can used as onPause() , never make a lenghty operation on it or create a threa , this code is not run in Backgroud
+- onDestroy() ----> activite will die and commit changes and save 
+
+
+- Scenario 1			 javafx note "what happen in load scene "
+	- one activity 
+	- back button pressed 
+	- pause called 
+	- stop called 
+	- Destroy called 
+"Note" if android 12 or greater , not garanteed that onDestroy() will called if the current activity is the launcher activity 
+
+- Scenario 2 
+	- 1st activity 
+	- button pressed to switch to  activity 2 
+
+	- activity1 onpause() , activity2 resume , activity 1 stop()
+	- back button pressd 
+	- activity 2 on pause() , activity1 on restart() then start() , activity 2 Stop() , activity1 resume() ; 
+	
+senario3 
+	- Rotate Screen 
+	- activity resume() , pause(), stop() ,Destroy() , then create() , start() , resume() ; 
+	- this caused by configuration , localization like "language" , orientaion like portait and lansescape
+
+scenario4
+	- there is a dialog appear like "true caller"
+	- acivity onpause() ; 
+	- Dialog removeed 
+	- activity resume() ;
+
+Scenario5 
+	- from recent apps 
+	- choose a activity 
+	- restart() , start() , resume() 
+
+scenario 6 
+	- no enough memory to open activity will see the aginn unused activity and kill it 
+	- return t to this activity will find it as it was , depend on the android version the method onSaveInstanceState(Bundle outsate) ; will called after onpause() or after onStop() ; 
+	- android save the state in bundel as key value pairs , any chnage user made it will be save in cash 
+
+
+
+- **if you have an activity and you haven't register it manifest file , threre is a exception will throwed , class not found exception** 
+
+	
+
+ 

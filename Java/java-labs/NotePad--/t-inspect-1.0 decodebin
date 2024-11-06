@@ -1,0 +1,243 @@
+[33mFactory Details:[0m
+  [94mRank                     [0mnone (0)[0m
+  [94mLong-name                [0mPlayer Bin 2[0m
+  [94mKlass                    [0mGeneric/Bin/Player[0m
+  [94mDescription              [0mAutoplug and play media from an uri[0m
+  [94mAuthor                   [0mWim Taymans <wim.taymans@gmail.com>[0m
+
+[33mPlugin Details[0m:
+  [94mName                     [0m[0mplayback[0m
+  [94mDescription              [0m[0mvarious playback elements[0m
+  [94mFilename                 [0m[0m/usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstplayback.so[0m
+  [94mVersion                  [0m[0m1.16.3[0m
+  [94mLicense                  [0m[0mLGPL[0m
+  [94mSource module            [0m[0mgst-plugins-base[0m
+  [94mSource release date      [0m[0m2020-10-21[0m
+  [94mBinary package           [0m[0mGStreamer Base Plugins (Ubuntu)[0m
+  [94mOrigin URL               [0m[0mhttps://launchpad.net/distros/ubuntu/+source/gst-plugins-base1.0[0m
+
+[32mGObject[0m
+ [95m+----[0m[32mGInitiallyUnowned[0m
+       [95m+----[0m[32mGstObject[0m
+             [95m+----[0m[32mGstElement[0m
+                   [95m+----[0m[32mGstBin[0m
+                         [95m+----[0m[32mGstPipeline[0m
+                               [95m+----[0m[32mGstPlayBin[0m
+
+[33mImplemented Interfaces[0m:
+  [32mGstChildProxy[0m
+  [32mGstStreamVolume[0m
+  [32mGstVideoOverlay[0m
+  [32mGstNavigation[0m
+  [32mGstColorBalance[0m
+
+[33mPad Templates[0m:
+  [0mnone[0m
+
+[0mElement has no clocking capabilities.[0m
+[0mElement has no URI handling capabilities.[0m
+
+[33mPads:[0m
+  [0mnone[0m
+
+[33mElement Properties[0m:
+  [94masync-handling      [0m: [0mThe bin will handle Asynchronous state changes[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mfalse[0m
+  [94maudio-filter        [0m: [0mthe audio filter(s) to apply, if possible[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [0mObject of type[0m [32m"GstElement"[0m
+  [94maudio-sink          [0m: [0mthe audio output element to use (NULL = default sink)[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [0mObject of type[0m [32m"GstElement"[0m
+  [94maudio-stream-combiner[0m: [0mCurrent audio stream combiner (NULL = input-selector)[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [0mObject of type[0m [32m"GstElement"[0m
+  [94mauto-flush-bus      [0m: [0mWhether to automatically flush the pipeline's bus when going from READY into NULL state[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mtrue[0m
+  [94mav-offset           [0m: [0mThe synchronisation offset between audio and video in nanoseconds[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mInteger64[0m. [33mRange[0m: [36m-9223372036854775808 - 9223372036854775807[0m [33mDefault[0m: [36m0[0m 
+  [94mbuffer-duration     [0m: [0mBuffer duration when buffering network streams[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mInteger64[0m. [33mRange[0m: [36m-1 - 9223372036854775807[0m [33mDefault[0m: [36m-1[0m 
+  [94mbuffer-size         [0m: [0mBuffer size when buffering network streams[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mInteger[0m. [33mRange[0m: [36m-1 - 2147483647[0m [33mDefault[0m: [36m-1[0m 
+  [94mconnection-speed    [0m: [0mNetwork connection speed in kbps (0 = unknown)[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mUnsigned Integer64[0m. [33mRange[0m: [36m0 - 18446744073709551[0m [33mDefault[0m: [36m0[0m 
+  [94mcurrent-audio       [0m: [0mCurrently playing audio stream (-1 = auto)[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mInteger[0m. [33mRange[0m: [36m-1 - 2147483647[0m [33mDefault[0m: [36m-1[0m 
+  [94mcurrent-suburi      [0m: [0mThe currently playing URI of a subtitle[0m
+                        [33mflags[0m: [36mreadable[0m
+                        [32mString[0m. [33mDefault[0m: [36mnull[0m
+  [94mcurrent-text        [0m: [0mCurrently playing text stream (-1 = auto)[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mInteger[0m. [33mRange[0m: [36m-1 - 2147483647[0m [33mDefault[0m: [36m-1[0m 
+  [94mcurrent-uri         [0m: [0mThe currently playing URI[0m
+                        [33mflags[0m: [36mreadable[0m
+                        [32mString[0m. [33mDefault[0m: [36mnull[0m
+  [94mcurrent-video       [0m: [0mCurrently playing video stream (-1 = auto)[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mInteger[0m. [33mRange[0m: [36m-1 - 2147483647[0m [33mDefault[0m: [36m-1[0m 
+  [94mdelay               [0m: [0mExpected delay needed for elements to spin up to PLAYING in nanoseconds[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mUnsigned Integer64[0m. [33mRange[0m: [36m0 - 18446744073709551615[0m [33mDefault[0m: [36m0[0m 
+  [94mflags               [0m: [0mFlags to control behaviour[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mFlags "GstPlayFlags"[0m [33mDefault[0m: [36m0x00000617, "soft-colorbalance+deinterlace+soft-volume+text+audio+video"[0m
+                           [33m(0x00000001)[0m: [36mvideo           [0m - [0mRender the video stream[0m
+                           [33m(0x00000002)[0m: [36maudio           [0m - [0mRender the audio stream[0m
+                           [33m(0x00000004)[0m: [36mtext            [0m - [0mRender subtitles[0m
+                           [33m(0x00000008)[0m: [36mvis             [0m - [0mRender visualisation when no video is present[0m
+                           [33m(0x00000010)[0m: [36msoft-volume     [0m - [0mUse software volume[0m
+                           [33m(0x00000020)[0m: [36mnative-audio    [0m - [0mOnly use native audio formats[0m
+                           [33m(0x00000040)[0m: [36mnative-video    [0m - [0mOnly use native video formats[0m
+                           [33m(0x00000080)[0m: [36mdownload        [0m - [0mAttempt progressive download buffering[0m
+                           [33m(0x00000100)[0m: [36mbuffering       [0m - [0mBuffer demuxed/parsed data[0m
+                           [33m(0x00000200)[0m: [36mdeinterlace     [0m - [0mDeinterlace video if necessary[0m
+                           [33m(0x00000400)[0m: [36msoft-colorbalance[0m - [0mUse software color balance[0m
+                           [33m(0x00000800)[0m: [36mforce-filters   [0m - [0mForce audio/video filter(s) to be applied[0m
+  [94mforce-aspect-ratio  [0m: [0mWhen enabled, scaling will respect original aspect ratio[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mtrue[0m
+  [94mlatency             [0m: [0mLatency to configure on the pipeline[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mUnsigned Integer64[0m. [33mRange[0m: [36m0 - 18446744073709551615[0m [33mDefault[0m: [36m18446744073709551615[0m 
+  [94mmessage-forward     [0m: [0mForwards all children messages[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mfalse[0m
+  [94mmute                [0m: [0mMute the audio channel without changing the volume[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mfalse[0m
+  [94mn-audio             [0m: [0mTotal number of audio streams[0m
+                        [33mflags[0m: [36mreadable[0m
+                        [32mInteger[0m. [33mRange[0m: [36m0 - 2147483647[0m [33mDefault[0m: [36m0[0m 
+  [94mn-text              [0m: [0mTotal number of text streams[0m
+                        [33mflags[0m: [36mreadable[0m
+                        [32mInteger[0m. [33mRange[0m: [36m0 - 2147483647[0m [33mDefault[0m: [36m0[0m 
+  [94mn-video             [0m: [0mTotal number of video streams[0m
+                        [33mflags[0m: [36mreadable[0m
+                        [32mInteger[0m. [33mRange[0m: [36m0 - 2147483647[0m [33mDefault[0m: [36m0[0m 
+  [94mname                [0m: [0mThe name of the object[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mString[0m. [33mDefault[0m: [36m"playbin0"[0m
+  [94mparent              [0m: [0mThe parent of the object[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [0mObject of type[0m [32m"GstObject"[0m
+  [94mring-buffer-max-size[0m: [0mMax. amount of data in the ring buffer (bytes, 0 = ring buffer disabled)[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mUnsigned Integer64[0m. [33mRange[0m: [36m0 - 4294967295[0m [33mDefault[0m: [36m0[0m 
+  [94msample              [0m: [0mThe last sample (NULL = no video available)[0m
+                        [33mflags[0m: [36mreadable[0m
+                        [0mBoxed pointer of type[0m [32m"GstSample"[0m
+  [94msource              [0m: [0mSource element[0m
+                        [33mflags[0m: [36mreadable[0m
+                        [0mObject of type[0m [32m"GstElement"[0m
+  [94msubtitle-encoding   [0m: [0mEncoding to assume if input subtitles are not in UTF-8 encoding. If not set, the GST_SUBTITLE_ENCODING environment variable will be checked for an encoding to use. If that is not set either, ISO-8859-15 will be assumed.[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mString[0m. [33mDefault[0m: [36mnull[0m
+  [94msubtitle-font-desc  [0m: [0mPango font description of font to be used for subtitle rendering[0m
+                        [33mflags[0m: [36mwritable[0m
+                        [32mString[0m. [33mDefault[0m: [36mnull[0m [0mWrite only[0m
+  [94msuburi              [0m: [0mOptional URI of a subtitle[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mString[0m. [33mDefault[0m: [36mnull[0m
+  [94mtext-offset         [0m: [0mThe synchronisation offset between text and video in nanoseconds[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mInteger64[0m. [33mRange[0m: [36m-9223372036854775808 - 9223372036854775807[0m [33mDefault[0m: [36m0[0m 
+  [94mtext-sink           [0m: [0mthe text output element to use (NULL = default subtitleoverlay)[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [0mObject of type[0m [32m"GstElement"[0m
+  [94mtext-stream-combiner[0m: [0mCurrent text stream combiner (NULL = input-selector)[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [0mObject of type[0m [32m"GstElement"[0m
+  [94muri                 [0m: [0mURI of the media to play[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mString[0m. [33mDefault[0m: [36mnull[0m
+  [94mvideo-filter        [0m: [0mthe video filter(s) to apply, if possible[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [0mObject of type[0m [32m"GstElement"[0m
+  [94mvideo-multiview-flags[0m: [0mOverride details of the multiview frame layout[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mFlags "GstVideoMultiviewFlags"[0m [33mDefault[0m: [36m0x00000000, "none"[0m
+                           [33m(0x00000000)[0m: [36mnone            [0m - [0mGST_VIDEO_MULTIVIEW_FLAGS_NONE[0m
+                           [33m(0x00000001)[0m: [36mright-view-first[0m - [0mGST_VIDEO_MULTIVIEW_FLAGS_RIGHT_VIEW_FIRST[0m
+                           [33m(0x00000002)[0m: [36mleft-flipped    [0m - [0mGST_VIDEO_MULTIVIEW_FLAGS_LEFT_FLIPPED[0m
+                           [33m(0x00000004)[0m: [36mleft-flopped    [0m - [0mGST_VIDEO_MULTIVIEW_FLAGS_LEFT_FLOPPED[0m
+                           [33m(0x00000008)[0m: [36mright-flipped   [0m - [0mGST_VIDEO_MULTIVIEW_FLAGS_RIGHT_FLIPPED[0m
+                           [33m(0x00000010)[0m: [36mright-flopped   [0m - [0mGST_VIDEO_MULTIVIEW_FLAGS_RIGHT_FLOPPED[0m
+                           [33m(0x00004000)[0m: [36mhalf-aspect     [0m - [0mGST_VIDEO_MULTIVIEW_FLAGS_HALF_ASPECT[0m
+                           [33m(0x00008000)[0m: [36mmixed-mono      [0m - [0mGST_VIDEO_MULTIVIEW_FLAGS_MIXED_MONO[0m
+  [94mvideo-multiview-mode[0m: [0mRe-interpret a video stream as one of several frame-packed stereoscopic modes.[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mEnum "GstVideoMultiviewFramePacking"[0m [33mDefault[0m: [36m-1, "none"[0m
+                           [33m(-1)[0m: [36mnone            [0m - [0mGST_VIDEO_MULTIVIEW_FRAME_PACKING_NONE[0m
+                           [33m(0)[0m: [36mmono            [0m - [0mGST_VIDEO_MULTIVIEW_FRAME_PACKING_MONO[0m
+                           [33m(1)[0m: [36mleft            [0m - [0mGST_VIDEO_MULTIVIEW_FRAME_PACKING_LEFT[0m
+                           [33m(2)[0m: [36mright           [0m - [0mGST_VIDEO_MULTIVIEW_FRAME_PACKING_RIGHT[0m
+                           [33m(3)[0m: [36mside-by-side    [0m - [0mGST_VIDEO_MULTIVIEW_FRAME_PACKING_SIDE_BY_SIDE[0m
+                           [33m(4)[0m: [36mside-by-side-quincunx[0m - [0mGST_VIDEO_MULTIVIEW_FRAME_PACKING_SIDE_BY_SIDE_QUINCUNX[0m
+                           [33m(5)[0m: [36mcolumn-interleaved[0m - [0mGST_VIDEO_MULTIVIEW_FRAME_PACKING_COLUMN_INTERLEAVED[0m
+                           [33m(6)[0m: [36mrow-interleaved [0m - [0mGST_VIDEO_MULTIVIEW_FRAME_PACKING_ROW_INTERLEAVED[0m
+                           [33m(7)[0m: [36mtop-bottom      [0m - [0mGST_VIDEO_MULTIVIEW_FRAME_PACKING_TOP_BOTTOM[0m
+                           [33m(8)[0m: [36mcheckerboard    [0m - [0mGST_VIDEO_MULTIVIEW_FRAME_PACKING_CHECKERBOARD[0m
+  [94mvideo-sink          [0m: [0mthe video output element to use (NULL = default sink)[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [0mObject of type[0m [32m"GstElement"[0m
+  [94mvideo-stream-combiner[0m: [0mCurrent video stream combiner (NULL = input-selector)[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [0mObject of type[0m [32m"GstElement"[0m
+  [94mvis-plugin          [0m: [0mthe visualization element to use (NULL = default)[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [0mObject of type[0m [32m"GstElement"[0m
+  [94mvolume              [0m: [0mThe audio volume, 1.0=100%[0m
+                        [33mflags[0m: [36mreadable[0m, [36mwritable[0m
+                        [32mDouble[0m. [33mRange[0m: [36m              0 -              10[0m [33mDefault[0m: [36m              1[0m 
+
+[33mElement Signals[0m:
+  [94m"about-to-finish"[0m :  [32mvoid[0m user_function[0m ([32mGstElement[0m* object[0m,
+                                           [32mgpointer [0muser_data[0m);
+  [94m"video-changed"[0m :  [32mvoid[0m user_function[0m ([32mGstElement[0m* object[0m,
+                                         [32mgpointer [0muser_data[0m);
+  [94m"audio-changed"[0m :  [32mvoid[0m user_function[0m ([32mGstElement[0m* object[0m,
+                                         [32mgpointer [0muser_data[0m);
+  [94m"text-changed"[0m :  [32mvoid[0m user_function[0m ([32mGstElement[0m* object[0m,
+                                        [32mgpointer [0muser_data[0m);
+  [94m"video-tags-changed"[0m :  [32mvoid[0m user_function[0m ([32mGstElement[0m* object[0m,
+                                              [32mgint[0m arg0[0m,
+                                              [32mgpointer [0muser_data[0m);
+  [94m"audio-tags-changed"[0m :  [32mvoid[0m user_function[0m ([32mGstElement[0m* object[0m,
+                                              [32mgint[0m arg0[0m,
+                                              [32mgpointer [0muser_data[0m);
+  [94m"text-tags-changed"[0m :  [32mvoid[0m user_function[0m ([32mGstElement[0m* object[0m,
+                                             [32mgint[0m arg0[0m,
+                                             [32mgpointer [0muser_data[0m);
+  [94m"source-setup"[0m :  [32mvoid[0m user_function[0m ([32mGstElement[0m* object[0m,
+                                        [32mGstElement[0m* arg0[0m,
+                                        [32mgpointer [0muser_data[0m);
+  [94m"element-setup"[0m :  [32mvoid[0m user_function[0m ([32mGstElement[0m* object[0m,
+                                         [32mGstElement[0m* arg0[0m,
+                                         [32mgpointer [0muser_data[0m);
+
+[33mElement Actions[0m:
+  [94m"get-video-tags"[0m :  [32mGstTagList[0m* user_function[0m ([32mGstElement[0m* object[0m,
+                                                  [32mgint[0m arg0[0m);
+  [94m"get-audio-tags"[0m :  [32mGstTagList[0m* user_function[0m ([32mGstElement[0m* object[0m,
+                                                  [32mgint[0m arg0[0m);
+  [94m"get-text-tags"[0m :  [32mGstTagList[0m* user_function[0m ([32mGstElement[0m* object[0m,
+                                                 [32mgint[0m arg0[0m);
+  [94m"convert-sample"[0m :  [32mGstSample[0m* user_function[0m ([32mGstElement[0m* object[0m,
+                                                 [32mGstCaps[0m* arg0[0m);
+  [94m"get-video-pad"[0m :  [32mGstPad[0m* user_function[0m ([32mGstElement[0m* object[0m,
+                                             [32mgint[0m arg0[0m);
+  [94m"get-audio-pad"[0m :  [32mGstPad[0m* user_function[0m ([32mGstElement[0m* object[0m,
+                                             [32mgint[0m arg0[0m);
+  [94m"get-text-pad"[0m :  [32mGstPad[0m* user_function[0m ([32mGstElement[0m* object[0m,
+                                            [32mgint[0m arg0[0m);
+
+[33mChildren[0m:
+  [32mplaysink[0m

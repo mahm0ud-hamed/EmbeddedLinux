@@ -83,25 +83,26 @@ it my downloaded to user machine wuth .class extension and will be interpreted f
 
 - applet has a life cycle which is some call back functions 
 
--> callback method is a methods that caaled automatically without any developer 
+- callback method is a methods that called  automatically without any developer call 
 
--> never make calling for call back function by yourself it will generate unknow behaviour  
+- never make calling for call back function by yourself it will generate unknow behaviour  
 
--> how developer affect -> it to understand functions and add his code 
+- how developer affect -> it to understand functions and add his code 
 
-calling an constructor of applet object using dedefalult constructor 
-applet manager who called applet constructor 
+- calling an constructor of applet object using dedefalult constructor 
 
-init() method is run one time only 
+- applet manager who called applet constructor 
 
-start() method can clled many times the first time after init 
+- init() method is run one time only 
 
-paint() method is resobonsible for ui and may callad many many many times 
+- start() method can clled many times the first time after init 
 
-stop() release reousrces temprorarly and it may wwhem user minimize browser 
+- paint() method is resobonsible for ui and may callad many many many times 
+
+- stop() release reousrces temprorarly and it may wwhem user minimize browser 
         if user return browser agin start() called agin 
 
-destroy() if user close browser stop called and then destroy called this will release resources parmenant 
+- destroy() if user close browser stop called and then destroy called this will release resources parmenant 
 
 
--> any class in java.lang is included by default any calss outside java.lang it must by explicit importing calss 
+- any class in java.lang is included by default any calss outside java.lang it must by explicit importing calss 
